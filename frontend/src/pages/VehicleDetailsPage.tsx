@@ -75,7 +75,7 @@ const VehicleDetailsPage = () => {
           )}
 
           <button className="mt-6 px-6 py-3 bg-orange-500 text-white rounded-lg hover:bg-orange-600 transition">
-            Reservar ahora
+            Rentar ahora
           </button>
 
         </div>
