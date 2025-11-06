@@ -5,7 +5,7 @@ import {
   BrowserRouter as Router,
   Routes
 } from 'react-router-dom'
-import Header from './components/header/Header'
+import Header from './components/Header/Header'
 import Footer from './components/Footer'
 import HomePage from './pages/HomePage'
 import RegisterPage from './pages/RegisterPage'
@@ -32,9 +32,8 @@ function App(): JSX.Element {
             <Route path="/flota-vehiculos" element={<VehicleFleetPage />} />
             <Route path="/vehiculo/:id" element={<VehicleDetailsPage />} />
             <Route path="/generar-reserva" element={<ReservationPage />} />
-
             <Route element={<ProtectedRoute redirectTo="/inicio" />}>
-              <Route path="/perfil" element={<UserProfilePage />} />
+            <Route path="/perfil" element={<UserProfilePage />} />
             </Route>
           </Routes>
         </main>

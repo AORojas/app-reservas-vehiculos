@@ -19,7 +19,10 @@ const Footer = (): JSX.Element => {
         <div>
           <ul className="space-y-2 font-bold tracking-wide">
             <li>
-              <Link to="#" className="transition hover:text-amber-800">
+              <Link
+                to="/flota-vehiculos"
+                className="transition-all duration-300 hover:tracking-wider hover:text-amber-800 hover:underline"
+              >
                 Flota de autos
               </Link>
             </li>

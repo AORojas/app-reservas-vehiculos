@@ -4,6 +4,7 @@ import { getVehicleById } from "../api/vehicleApi";
 import type { VehicleDetails } from "../types/types";
 import { vehicleColorImages } from "../data/vehicleColorImages";
 
+
 const VehicleDetailsPage = () => {
   const { id } = useParams();
   const [vehicle, setVehicle] = useState<VehicleDetails | null>(null);
@@ -12,7 +13,6 @@ const VehicleDetailsPage = () => {
   useEffect(() => {
   if (id) {
     getVehicleById(id).then((res) => {
-      console.log("EL TÍTULO QUE LLEGA ES:", res.vehicleDetails.title);
       setVehicle(res.vehicleDetails);
     });
   }
@@ -20,7 +20,7 @@ const VehicleDetailsPage = () => {
 
   if (!vehicle) return <p className="text-center mt-20 text-lg">Cargando...</p>;
 
-  // Buscar colores para este auto
+
   const colorOptions = (vehicleColorImages as Record<string, Record<string, string>>)[vehicle.title] ?? null;
   const imageToShow =
     colorOptions?.[selectedColor] || `${import.meta.env.VITE_API_URL}/${vehicle.imageURL}`;
@@ -31,7 +31,7 @@ const VehicleDetailsPage = () => {
 
       <div className="flex flex-col md:flex-row items-center gap-10">
 
-        {/* Imagen */}
+       
         <div className="w-full md:w-1/2 flex justify-center">
           <img
             src={imageToShow}
@@ -40,7 +40,7 @@ const VehicleDetailsPage = () => {
           />
         </div>
 
-        {/* Info */}
+      
         <div className="w-full md:w-1/2 space-y-3">
           <p><strong>Año:</strong> {vehicle.year}</p>
           <p><strong>Transmisión:</strong> {vehicle.transmissionType}</p>
@@ -48,12 +48,11 @@ const VehicleDetailsPage = () => {
           <p><strong>Garantía:</strong> ARS ${vehicle.warrantyCost}</p>
           <p><strong>Descripción:</strong> {vehicle.description}</p>
 
-          {/* Precio */}
+          
           <p className="text-orange-600 text-2xl font-bold mt-4">
             ARS ${vehicle.pricePerDay}/día
           </p>
 
-          {/* Selector de color */}
           {colorOptions && (
             <div className="mt-4">
               <p className="font-semibold mb-1">Colores disponibles:</p>
