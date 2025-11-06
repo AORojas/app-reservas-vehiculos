@@ -16,6 +16,7 @@ import LoginUser from './components/user/LoginUser'
 import UserProfilePage from './pages/UserProfilePage'
 import AuthProvider from './context/AuthContext'
 import ProtectedRoute from './components/ProtectedRoute'
+import ScrollToTopButton from './components/ScrollToTopButton'
 
 function App(): JSX.Element {
   const [isLoginOpen, setIsLoginOpen] = useState(false)
@@ -37,6 +38,7 @@ function App(): JSX.Element {
             </Route>
           </Routes>
         </main>
+        <ScrollToTopButton />
         <Footer />
         <LoginUser
           onClose={() => setIsLoginOpen(false)}
